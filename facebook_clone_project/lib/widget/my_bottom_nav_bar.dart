@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 
 class MyBottomNavBar extends StatefulWidget {
-  final double height;
+  final double? height,
+      bottomLeftRadius,
+      bottomRightRadius,
+      topRightRadius,
+      topLeftRadius;
   final Color bgColor;
   final List<NavBarIcon> navIconList;
+  final int currentPageNumber;
+  final MyBoxShadow? boxShadow;
 
   const MyBottomNavBar({
     Key? key,
     this.height = 100,
     this.bgColor = Colors.white,
     required this.navIconList,
+    required this.currentPageNumber,
+    this.boxShadow,
+    this.bottomLeftRadius = 0.0,
+    this.bottomRightRadius = 0.0,
+    this.topRightRadius = 0.0,
+    this.topLeftRadius = 0.0,
   }) : super(key: key);
 
   @override
@@ -36,12 +48,15 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
   void initState() {
     super.initState();
     for (int i = 0; i < widget.navIconList.length; i += 1) {
-      i == 0 ? boolList.add(true) : boolList.add(false);
+      i == widget.currentPageNumber ? boolList.add(true) : boolList.add(false);
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    for (int i = 0; i < widget.navIconList.length; i += 1) {
+      i == 0 ? boolList.add(true) : boolList.add(false);
+    }
     return Container(
       alignment: Alignment.center,
       height: widget.height,
@@ -51,7 +66,6 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
           widget.navIconList.length,
           (index) => InkWell(
             onTap: () {
-              print(index);
               unselectList(index);
             },
             child: Container(
@@ -68,6 +82,23 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: widget.bgColor,
+        boxShadow: [
+          BoxShadow(
+            color: widget.boxShadow?.color ?? Colors.transparent,
+            blurRadius:
+                widget.boxShadow?.blurRadius ?? MyBoxShadow().blurRadius,
+            spreadRadius:
+                widget.boxShadow?.spreadRadius ?? MyBoxShadow().getSpreadRadius,
+            offset: Offset(widget.boxShadow?.x ?? MyBoxShadow().getXshadow,
+                widget.boxShadow?.y ?? MyBoxShadow().getYshadow),
+          ),
+        ],
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(widget.bottomLeftRadius!),
+          bottomRight: Radius.circular(widget.bottomRightRadius!),
+          topLeft: Radius.circular(widget.topLeftRadius!),
+          topRight: Radius.circular(widget.topRightRadius!),
+        ),
       ),
     );
   }
@@ -107,4 +138,21 @@ class _NavBarIconState extends State<NavBarIcon> {
       ),
     );
   }
+}
+
+class MyBoxShadow {
+  final double x, y, blurRadius, spreadRadius;
+  final Color color;
+  MyBoxShadow({
+    this.spreadRadius = 8,
+    this.x = 0,
+    this.y = 3,
+    this.blurRadius = 7,
+    this.color = const Color(0xff9e9e9e),
+  });
+
+  get getSpreadRadius => spreadRadius;
+  get getXshadow => x;
+  get getYshadow => y;
+  get getColorShadow => color;
 }

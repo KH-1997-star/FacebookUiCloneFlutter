@@ -78,10 +78,33 @@ class FacebookHomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
+          Opacity(
+            opacity: 0.06,
+            child: Divider(
+              height: 0.8,
+              color: Color(0xff707070),
+              thickness: 1,
+            ),
+          ),
           MyBottomNavBar(
-            bgColor: Colors.black,
+            bottomLeftRadius: 16.r,
+            bottomRightRadius: 16.r,
+            boxShadow: MyBoxShadow(
+              x: 0,
+              y: 3,
+              spreadRadius: 0,
+              blurRadius: 6,
+              color: Color(0xff8291B4).withOpacity(0.16),
+              //opacity: 0.16,
+            ),
+            currentPageNumber: 0,
+            //bgColor: Colors.black,
             height: 50.h,
             navIconList: [
+              /*  NavBarIcon(
+                bgColor: Colors.white,
+                onClick: () {},
+              ),
               NavBarIcon(
                 bgColor: Colors.white,
                 onClick: () {},
@@ -89,7 +112,19 @@ class FacebookHomeScreen extends StatelessWidget {
               NavBarIcon(
                 bgColor: Colors.white,
                 onClick: () {},
-              )
+              ),
+              NavBarIcon(
+                bgColor: Colors.white,
+                onClick: () {},
+              ),
+              NavBarIcon(
+                bgColor: Colors.white,
+                onClick: () {},
+              ),
+              NavBarIcon(
+                bgColor: Colors.white,
+                onClick: () {},
+              ), */
             ],
           )
           /*   BottomNavigationBar(type: BottomNavigationBarType.shifting, items: [
