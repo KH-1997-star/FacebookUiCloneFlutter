@@ -23,6 +23,7 @@ class MyBottomNavBar extends StatefulWidget {
     this.topRightRadius = 0.0,
     this.topLeftRadius = 0.0,
   }) : super(key: key);
+  get getHeight => height;
 
   @override
   State<MyBottomNavBar> createState() => _MyBottomNavBarState();
@@ -70,7 +71,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
             },
             child: Container(
                 width: widget.navIconList[index].width,
-                height: widget.navIconList[index].height - 9,
+                height: widget.navIconList[index].height + 4,
                 decoration: BoxDecoration(
                   color: boolList[index] ? Colors.red : Colors.transparent,
                   shape: BoxShape.circle,
@@ -108,6 +109,7 @@ class NavBarIcon extends StatefulWidget {
   final double height, width;
   final String title;
   final Color bgColor;
+  final Widget? icon;
   final VoidCallback onClick;
 
   const NavBarIcon({
@@ -117,6 +119,7 @@ class NavBarIcon extends StatefulWidget {
     this.title = '',
     this.bgColor = Colors.transparent,
     required this.onClick,
+    this.icon,
   }) : super(key: key);
 
   @override
@@ -126,15 +129,22 @@ class NavBarIcon extends StatefulWidget {
 class _NavBarIconState extends State<NavBarIcon> {
   @override
   Widget build(BuildContext context) {
+    print(MyBottomNavBar(
+      navIconList: [],
+      currentPageNumber: 1,
+    ).getHeight);
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: widget.height,
-        width: widget.width,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: widget.bgColor,
-        ),
+      child: Column(
+        children: [
+          widget.icon ?? const SizedBox(),
+          const Text(
+            'home',
+            style: TextStyle(
+              fontSize: 12,
+            ),
+          )
+        ],
       ),
     );
   }
