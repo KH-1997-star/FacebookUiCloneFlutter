@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyBottomNavBar extends StatefulWidget {
   final double? height,
@@ -7,6 +8,7 @@ class MyBottomNavBar extends StatefulWidget {
       topRightRadius,
       topLeftRadius;
   final Color bgColor;
+  final Color? focusedColor;
   final List<NavBarIcon> navIconList;
   final int currentPageNumber;
   final MyBoxShadow? boxShadow;
@@ -22,6 +24,7 @@ class MyBottomNavBar extends StatefulWidget {
     this.bottomRightRadius = 0.0,
     this.topRightRadius = 0.0,
     this.topLeftRadius = 0.0,
+    this.focusedColor,
   }) : super(key: key);
   get getHeight => height;
 
@@ -59,24 +62,26 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
       i == 0 ? boolList.add(true) : boolList.add(false);
     }
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 29.w),
       alignment: Alignment.center,
       height: widget.height,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: List.generate(
           widget.navIconList.length,
-          (index) => InkWell(
-            onTap: () {
-              unselectList(index);
-            },
-            child: Container(
-                width: widget.navIconList[index].width,
-                height: widget.navIconList[index].height + 4,
-                decoration: BoxDecoration(
-                  color: boolList[index] ? Colors.red : Colors.transparent,
-                  shape: BoxShape.circle,
-                ),
-                child: widget.navIconList[index]),
+          (index) => Expanded(
+            child: InkWell(
+              onTap: () {
+                unselectList(index);
+              },
+              child: Container(
+                  width: widget.navIconList[index].width,
+                  height: widget.navIconList[index].height + 4,
+                  decoration: BoxDecoration(
+                    color: widget.focusedColor ?? Colors.transparent,
+                    shape: BoxShape.circle,
+                  ),
+                  child: widget.navIconList[index]),
+            ),
           ),
         ),
       ),
@@ -115,7 +120,7 @@ class NavBarIcon extends StatefulWidget {
   const NavBarIcon({
     Key? key,
     this.height = 50,
-    this.width = 50,
+    this.width = 100,
     this.title = '',
     this.bgColor = Colors.transparent,
     required this.onClick,
@@ -129,21 +134,22 @@ class NavBarIcon extends StatefulWidget {
 class _NavBarIconState extends State<NavBarIcon> {
   @override
   Widget build(BuildContext context) {
-    print(MyBottomNavBar(
-      navIconList: [],
-      currentPageNumber: 1,
-    ).getHeight);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           widget.icon ?? const SizedBox(),
-          const Text(
-            'home',
-            style: TextStyle(
-              fontSize: 12,
-            ),
-          )
+          widget.title == ''
+              ? const SizedBox()
+              : Text(
+                  widget.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 12,
+                  ),
+                )
         ],
       ),
     );
@@ -166,3 +172,21 @@ class MyBoxShadow {
   get getYshadow => y;
   get getColorShadow => color;
 }
+
+/* class SomeWhereIcon extends StatelessWidget {
+  final Color? color;
+final Widget? icon;
+  const SomeWhereIcon(this.color,  this.icon, {Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Widget myIcon;
+    IconData icon  ;
+    icon.runtimeType;
+    icon.hashCode == Icon
+    return 
+  }
+}
+BottomAppBar bottomAppBar;
+ */
