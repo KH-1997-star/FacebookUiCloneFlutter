@@ -1,5 +1,6 @@
 import 'package:facebook_clone_project/widget/grey_circular_container.dart';
 import 'package:facebook_clone_project/widget/my_bottom_nav_bar.dart';
+import 'package:facebook_clone_project/widget/my_widget_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,11 +21,12 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
         leading: Padding(
           padding: EdgeInsets.only(left: 17.w),
           child: InkWell(
-              onTap: () {},
-              child: SvgPicture.asset(
-                'icons/facebook_icon.svg',
-                fit: BoxFit.scaleDown,
-              )),
+            onTap: () {},
+            child: SvgPicture.asset(
+              'icons/facebook_icon.svg',
+              fit: BoxFit.scaleDown,
+            ),
+          ),
         ),
         actions: [
           GreyCircularWidget(
@@ -154,6 +156,29 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
                     ],
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(top: 64.h),
+                  child: Row(
+                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      Expanded(
+                        child: MyWidgetButton(
+                            imagePath: 'icons/camera_photo_icon.svg',
+                            title: 'Fotos'),
+                      ),
+                      Expanded(
+                        child: MyWidgetButton(
+                            imagePath: 'icons/camera_video_icon.svg',
+                            title: 'En vivo'),
+                      ),
+                      Expanded(
+                        child: MyWidgetButton(
+                            imagePath: 'icons/live_eye_icon.svg',
+                            title: 'Video corto'),
+                      )
+                    ],
+                  ),
+                )
               ],
             ),
             decoration: BoxDecoration(
