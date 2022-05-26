@@ -86,7 +86,7 @@ class FacebookHomeScreen extends StatelessWidget {
               thickness: 1,
             ),
           ),
-          MyBottomNavBar(
+          /*  MyBottomNavBar(
             bottomLeftRadius: 16.r,
             bottomRightRadius: 16.r,
             boxShadow: MyBoxShadow(
@@ -136,7 +136,7 @@ class FacebookHomeScreen extends StatelessWidget {
               ),
             ],
           )
-          /*   BottomNavigationBar(type: BottomNavigationBarType.shifting, items: [
+          */ /*   BottomNavigationBar(type: BottomNavigationBarType.shifting, items: [
             BottomNavigationBarItem(
               label: '',
               icon: SvgPicture.asset('icons/home_icon.svg'),
@@ -148,6 +148,16 @@ class FacebookHomeScreen extends StatelessWidget {
           ]) */
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.ac_unit),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.ac_unit),
+          label: '',
+        ),
+      ]),
     );
   }
 }
