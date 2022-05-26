@@ -3,7 +3,7 @@ import 'package:facebook_clone_project/utils/my_theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
