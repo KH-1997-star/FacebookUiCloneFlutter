@@ -1,6 +1,7 @@
 import 'package:facebook_clone_project/widget/grey_circular_container.dart';
 import 'package:facebook_clone_project/widget/my_bottom_nav_bar.dart';
 import 'package:facebook_clone_project/widget/my_widget_button.dart';
+import 'package:facebook_clone_project/widget/publication_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -86,11 +87,30 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
-        child: Stack(
-          children: [
-            Column(
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Stack(
+              children: [
+                Padding(
+                  padding:
+                      EdgeInsets.only(top: 262.7.h, left: 8.7.w, right: 8.7.w),
+                  child: Container(
+                    height: 500,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20.r),
+                            topRight: Radius.circular(20.r))),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Column(
               children: [
                 const Opacity(
                   opacity: 0.06,
@@ -101,7 +121,7 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
                   ),
                 ),
                 Container(
-                  height: 120,
+                  height: 120.h,
                   width: MediaQuery.of(context).size.width,
                   child: Stack(
                     children: [
@@ -202,142 +222,11 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
                 SizedBox(
                   height: 142.7.h,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.7.w),
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    child: ListView(
-                      children: [
-                        ListView(
-                          padding: EdgeInsets.only(bottom: 150.h),
-                          shrinkWrap: true,
-                          children: [
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text('FUCK THE WORLD'),
-                            Text(
-                              'FUCK THE WORLD',
-                              style: TextStyle(color: Colors.green),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                PublicationWidget(),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       bottomNavigationBar: MyBottomNavBar(
         topLeftRadius: 24.r,
