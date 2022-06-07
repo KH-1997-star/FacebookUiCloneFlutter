@@ -1,6 +1,7 @@
 import 'package:facebook_clone_project/widget/grey_circular_container.dart';
 import 'package:facebook_clone_project/widget/my_bottom_nav_bar.dart';
 import 'package:facebook_clone_project/widget/my_widget_button.dart';
+import 'package:facebook_clone_project/widget/story_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -72,6 +73,10 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
           ),
           SizedBox(
             width: 17.w,
+          ),
+          const SizedBox(
+            height: 10,
+            width: 10,
           ),
           Container(
             height: 37.w,
@@ -195,6 +200,28 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(16.r),
                   bottomRight: Radius.circular(16.r)),
+            ),
+          ),
+          SizedBox(
+            height: 22.h,
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 23.8.w),
+            child: SizedBox(
+              height: 98.h,
+              width: MediaQuery.of(context).size.width,
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: 5,
+                itemBuilder: (_, index) => Padding(
+                  padding: EdgeInsets.only(
+                    right: index == 1 ? 22.w : 15.9.w,
+                  ),
+                  child: const StoryWidget(
+                      imagePath: 'images/big_image_0.jpg', title: 'Sandra'),
+                ),
+              ),
             ),
           ),
         ],
