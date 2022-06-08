@@ -114,10 +114,20 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
                       height: 500,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: Colors.white,
                           borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20.r),
-                              topRight: Radius.circular(20.r))),
+                            topLeft: Radius.circular(24.r),
+                            topRight: Radius.circular(24.r),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xffB8CADE).withOpacity(0.27),
+                              //spreadRadius: 60,
+                              blurRadius: 4,
+                              offset: const Offset(0, 3),
+                              // changes position of shadow
+                            ),
+                          ]),
                     ),
                   ),
                   Padding(
@@ -134,7 +144,8 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
                           padding: EdgeInsets.only(
                             right: index == 1 ? 22.w : 15.9.w,
                           ),
-                          child: const StoryWidget(
+                          child: StoryWidget(
+                              isFirst: index == 0 ? true : false,
                               imagePath: 'images/big_image_0.jpg',
                               title: 'Sandra'),
                         ),

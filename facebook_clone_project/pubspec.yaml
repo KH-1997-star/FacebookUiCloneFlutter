@@ -37,6 +37,7 @@ dependencies:
   flutter_screenutil: ^5.4.0+1
   flutter_svg: ^1.0.3
   flutter_svg_provider:
+  dotted_border: ^2.0.0+2
    
    
 
