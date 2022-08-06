@@ -38,6 +38,7 @@ dependencies:
   flutter_svg: ^1.0.3
   flutter_svg_provider:
   dotted_border: ^2.0.0+2
+  percent_indicator: ^4.0.1
    
    
 

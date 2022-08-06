@@ -80,9 +80,9 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
           SizedBox(
             width: 17.w,
           ),
-          const SizedBox(
-            height: 10,
-            width: 10,
+          SizedBox(
+            height: 10.h,
+            width: 10.w,
           ),
           Container(
             height: 37.w,
@@ -96,40 +96,17 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
             ),
           ),
           SizedBox(
-            width: 18.w,
+            width: 13.w,
           ),
         ],
       ),
       body: Stack(
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 120.h),
-            child: SingleChildScrollView(
-              child: Stack(
+          SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.only(top: 120.h),
+              child: Column(
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: 124.7.h, left: 8.7.w, right: 8.7.w),
-                    child: Container(
-                      height: 500,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(24.r),
-                            topRight: Radius.circular(24.r),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0xffB8CADE).withOpacity(0.27),
-                              //spreadRadius: 60,
-                              blurRadius: 4,
-                              offset: const Offset(0, 3),
-                              // changes position of shadow
-                            ),
-                          ]),
-                    ),
-                  ),
                   Padding(
                     padding: EdgeInsets.only(top: 22.h),
                     child: SizedBox(
@@ -150,6 +127,34 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
                               title: 'Sandra'),
                         ),
                       ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.only(top: 23.h, left: 8.7.w, right: 8.7.w),
+                    child: Container(
+                      height: 500.h * 3,
+                      child: ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (_, index) => const PublicationWidget(),
+                        itemCount: 3,
+                      ),
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(24.r),
+                            topRight: Radius.circular(24.r),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xffB8CADE).withOpacity(0.27),
+                              //spreadRadius: 60,
+                              blurRadius: 4,
+                              offset: const Offset(0, 3),
+                              // changes position of shadow
+                            ),
+                          ]),
                     ),
                   ),
                 ],
@@ -267,15 +272,11 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
                         bottomRight: Radius.circular(16.r)),
                   ),
                 ),
-                SizedBox(
+                /*    SizedBox(
                   height: 142.7.h,
-                ),
-                const PublicationWidget(),
+                ), */
               ],
             ),
-          ),
-          SizedBox(
-            height: 22.h,
           ),
         ],
       ),
@@ -284,11 +285,11 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
         topRightRadius: 24.r,
         boxShadow: MyBoxShadow(
           x: 0,
-          y: 3,
+          y: -6,
           spreadRadius: 0,
-          blurRadius: 6,
+          blurRadius: 40,
 
-          color: const Color(0xff8291B4).withOpacity(0.16),
+          color: const Color(0xffB8CADE).withOpacity(0.24),
           //opacity: 0.16,
         ),
         currentPageNumber: 5,
